@@ -2,7 +2,7 @@ import React from "react";
 
 export default function BackgroundLines() {
   return (
-    <svg className="pointer-events-none absolute inset-0 -z-10 h-full w-full opacity-[0.25]" aria-hidden>
+    <svg className="pointer-events-none absolute inset-0 z-0 h-full w-full opacity-[0.25]" aria-hidden>
       <defs>
         <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
           <path d="M40 0H0V40" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-slate-300" />

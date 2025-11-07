@@ -1,31 +1,27 @@
-﻿# ðŸš€ Weather - Modern React Weather App
+﻿#  Weather - Modern React Weather App
 
-A comprehensive, professional weather application that delivers realâ€‘time conditions, clean UI/UX, and a productionâ€‘ready setup using React + Vite. Includes city search, metric/imperial units, graceful errors, and fast performance.
+A comprehensive, professional weather application that delivers realtime conditions, clean UI/UX, and a productionready setup using React + Vite. Includes city search, metric/imperial units, graceful errors, and fast performance.
 
-ðŸŒ Live Application
+ Live Application
 
 - Main Website: https://your-live-url.com/  
   (Add your deployed URL once live)
 
-â€”
+##  Features
 
-## âœ¨ Features
-
-### ðŸŽ¯ Core Functionalities
+###  Core Functionalities
 - City Search: Find weather by city name with instant feedback
 - Current Conditions: Temperature, feels-like, humidity, wind, and description
 - Icons & Status: Clear condition icons and readable labels
 - Input Validation: Robust form validation (e.g., via Zod) and helpful errors
 - Responsive UI: Works smoothly on mobile, tablet, and desktop
 
-### ðŸ“Š Helpful Details
-- Unit Toggle (optional): Metric (Â°C) and Imperial (Â°F)
+###  Helpful Details
+- Unit Toggle (optional): Metric (C) and Imperial (F)
 - Error Handling: Friendly messages for invalid input/network errors
 - Fast Dev Experience: Lightning-fast hot reload via Vite
 
-â€”
-
-## ðŸ§­ Architecture
+##  Architecture
 
 A simple, extensible structure designed for clarity and growth:
 
@@ -46,9 +42,7 @@ Weather/
   README.md
 ```
 
-â€”
-
-## ðŸš€ Quick Start
+##  Quick Start
 
 ### 1) Local Development
 
@@ -80,9 +74,7 @@ VITE_WEATHER_API_URL=https://api.openweathermap.org/data/2.5
 
 Access in code with `import.meta.env.VITE_WEATHER_API_KEY`.
 
-â€”
-
-## ðŸŒ API Integration
+##  API Integration
 
 Example (Axios) to fetch current weather by city:
 
@@ -101,9 +93,7 @@ export async function getWeatherByCity(city) {
 }
 ```
 
-â€”
-
-## ðŸ“¸ Screenshots
+##  Screenshots
 
 (Add images to `public/screenshots/` and update paths below)
 
@@ -111,51 +101,38 @@ export async function getWeatherByCity(city) {
 | --- | --- |
 | ![Home](public/screenshots/home.png) | ![Result](public/screenshots/result.png) |
 
-â€”
-
-## ðŸ“¦ Deployment Options
+##  Deployment Options
 
 ### Vercel (Recommended)
-- Import repo â†’ Set env vars â†’ Build `npm run build` â†’ Output `dist/`
+- Import repo  Set env vars  Build `npm run build`  Output `dist/`
 
 ### Netlify
-- New site from Git â†’ Env vars â†’ Build `npm run build` â†’ Publish `dist/`
+- New site from Git  Env vars  Build `npm run build`  Publish `dist/`
 
 ### Render
-- Web Service â†’ Build: `npm install && npm run build` â†’ Start: `npm run preview` (or custom server)
+- Web Service  Build: `npm install && npm run build`  Start: `npm run preview` (or custom server)
 
-â€”
-
-## ðŸ› ï¸ Customization
+##  Customization
 - Theming: Tailwind config for colors/spacing/typography
-- Units & Locale: Add toggles for Â°C/Â°F, language, date/time formatting
+- Units & Locale: Add toggles for C/F, language, date/time formatting
 - Components: Extract `SearchBar`, `WeatherCard`, `ErrorBanner`, etc.
 - Validation: Strengthen Zod schemas for cleaner UX
 
-â€”
-
-## ðŸ”’ Notes
-- Never commit real API keys. Use `.env` and ensure itâ€™s in `.gitignore`.
+##  Notes
+- Never commit real API keys. Use `.env` and ensure its in `.gitignore`.
 - Handle rate limits and error states from the weather API gracefully.
 
-â€”
-
-## ðŸ¤ Contributing
+##  Contributing
 Contributions are welcome! Please open an issue or PR on GitHub.
 
-â€”
-
-## ðŸ“„ License
+##  License
 MIT License. See `LICENSE` for details.
-
-â€”
 
 ## Links
 - Live: https://your-live-url.com/
 - GitHub Repo: https://github.com/Amrut735/Weather
 
-â€”
-
 References / Inspiration:
 - CareerGuideAI (structure inspiration): https://career-guide-ai-2.onrender.com/
 - CareerGuideAI GitHub: https://github.com/Amrut735/Career-Guide-AI
+

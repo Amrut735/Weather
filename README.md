@@ -1,139 +1,129 @@
-﻿#  Weather - Modern React Weather App
+﻿# Weather - Modern React Weather App
 
-A comprehensive, professional weather application that delivers realtime conditions, clean UI/UX, and a productionready setup using React + Vite. Includes city search, metric/imperial units, graceful errors, and fast performance.
+A clean, fast weather application built with React + Vite. Search any city to see current conditions with friendly validation, helpful errors, and a responsive UI styled with Tailwind CSS.
 
- Live Application
+- React 19 + Vite 7 for a great DX
+- Tailwind CSS 4 for styling
+- Axios for HTTP requests
+- Zod for input validation
+- ESLint configured for React + hooks
 
-- Main Website: https://your-live-url.com/  
-  (Add your deployed URL once live)
-
-##  Features
-
-###  Core Functionalities
-- City Search: Find weather by city name with instant feedback
-- Current Conditions: Temperature, feels-like, humidity, wind, and description
-- Icons & Status: Clear condition icons and readable labels
-- Input Validation: Robust form validation (e.g., via Zod) and helpful errors
-- Responsive UI: Works smoothly on mobile, tablet, and desktop
-
-###  Helpful Details
-- Unit Toggle (optional): Metric (C) and Imperial (F)
-- Error Handling: Friendly messages for invalid input/network errors
-- Fast Dev Experience: Lightning-fast hot reload via Vite
-
-##  Architecture
-
-A simple, extensible structure designed for clarity and growth:
+## Project Structure
 
 ```
-Weather/
+we/
   public/
-    screenshots/           # images for README
+    vite.svg
   src/
-    components/            # UI components
-    hooks/                 # custom hooks (optional)
-    styles/                # styles (Tailwind or CSS)
-    utils/                 # helpers (formatting, api)
+    components/
+      SearchBar.jsx
+      WeatherCard.jsx
+    pages/
+      Home.jsx
+      About.jsx
+    assets/
+      react.svg
     App.jsx
+    App.css
+    index.css
     main.jsx
   index.html
   package.json
   vite.config.js
+  tailwind.config.js
+  postcss.config.js
+  eslint.config.js
   README.md
 ```
 
-##  Quick Start
+## Features
 
-### 1) Local Development
+- City search with Enter or button submit
+- Robust city name validation with helpful messages
+- Current conditions: temperature, feels-like, humidity, wind, description
+- Clear loading and error states (e.g., city not found)
+- Responsive, minimal UI with Tailwind
+- Environment-based API configuration
+
+## Getting Started
+
+### Prerequisites
+- Node.js >= 18
+- npm >= 9
+
+### Install & Run
 
 ```bash
-# Clone
-git clone https://github.com/Amrut735/Weather.git
-cd Weather
-
-# Install
+# install
 npm install
 
-# Run dev server
+# start dev server
 npm run dev
 
-# Build for production
+# production build
 npm run build
 
-# Preview production build
+# preview production build
 npm run preview
 ```
 
-### 2) Environment Variables
+### Environment Variables
 Create a `.env` file in the project root:
 
 ```
 VITE_WEATHER_API_KEY=your_openweather_api_key
+# Optional override (defaults to https://api.openweathermap.org/data/2.5)
 VITE_WEATHER_API_URL=https://api.openweathermap.org/data/2.5
 ```
 
-Access in code with `import.meta.env.VITE_WEATHER_API_KEY`.
-
-##  API Integration
-
-Example (Axios) to fetch current weather by city:
+These are accessed via `import.meta.env` in code. Example usage in `src/App.jsx`:
 
 ```js
-import axios from "axios";
-
-const api = axios.create({
-  baseURL: import.meta.env.VITE_WEATHER_API_URL,
-});
-
-export async function getWeatherByCity(city) {
-  const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
-  const params = { q: city, appid: apiKey, units: "metric" };
-  const { data } = await api.get("/weather", { params });
-  return data;
-}
+const apiKey = import.meta.env.VITE_WEATHER_API_KEY;
+// axios.get("https://api.openweathermap.org/data/2.5/weather", {
+//   params: { q: query, appid: apiKey, units: "metric" },
+// })
 ```
 
-##  Screenshots
+## Scripts
 
-(Add images to `public/screenshots/` and update paths below)
+- `npm run dev`: Start Vite dev server
+- `npm run build`: Build for production
+- `npm run preview`: Preview the production build
+- `npm run lint`: Lint the codebase
+
+## API
+
+Data is fetched from OpenWeather's Current Weather Data API using Axios. Units default to metric (°C). Configure the API key via environment variables as shown above.
+
+## Tech Notes
+
+- UI is composed of `SearchBar` and `WeatherCard` components.
+- Input validation is implemented with Zod to ensure clean city input.
+- Tailwind CSS utilities are referenced in `src/index.css` and configured via `tailwind.config.js` and `postcss.config.js`.
+- ESLint is set up for recommended React rules and React hooks best practices.
+
+## Screenshots
+Add images to `public/` (e.g., `public/screenshots/home.png`) and reference them here.
 
 | Home | Result |
-| --- | --- |
-| ![Home](public/screenshots/home.png) | ![Result](public/screenshots/result.png) |
+| ---- | ------ |
+| (add) | (add) |
 
-##  Deployment Options
+## Deployment
 
-### Vercel (Recommended)
-- Import repo  Set env vars  Build `npm run build`  Output `dist/`
+Any static host that serves the Vite build output will work:
 
-### Netlify
-- New site from Git  Env vars  Build `npm run build`  Publish `dist/`
+- Vercel: Import repo, set env vars, build `npm run build`, output `dist/`
+- Netlify: New site from Git, env vars, build `npm run build`, publish `dist/`
+- Render: Static site or web service, build `npm install && npm run build`, serve `dist/`
 
-### Render
-- Web Service  Build: `npm install && npm run build`  Start: `npm run preview` (or custom server)
+## License
 
-##  Customization
-- Theming: Tailwind config for colors/spacing/typography
-- Units & Locale: Add toggles for C/F, language, date/time formatting
-- Components: Extract `SearchBar`, `WeatherCard`, `ErrorBanner`, etc.
-- Validation: Strengthen Zod schemas for cleaner UX
-
-##  Notes
-- Never commit real API keys. Use `.env` and ensure its in `.gitignore`.
-- Handle rate limits and error states from the weather API gracefully.
-
-##  Contributing
-Contributions are welcome! Please open an issue or PR on GitHub.
-
-##  License
-MIT License. See `LICENSE` for details.
+MIT
 
 ## Links
-- Live: https://your-live-url.com/
-- GitHub Repo: https://github.com/Amrut735/Weather
 
-References / Inspiration:
-- CareerGuideAI (structure inspiration): https://career-guide-ai-2.onrender.com/
-- CareerGuideAI GitHub: https://github.com/Amrut735/Career-Guide-AI
+- Repository: https://github.com/Amrut735/Weather
 
 

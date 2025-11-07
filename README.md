@@ -133,8 +133,8 @@ firebase login --no-localhost
 ```
 
 3) Set your Firebase project ID:
-- Replace `YOUR_FIREBASE_PROJECT_ID` in `.firebaserc` with your actual project ID
-  (find it in Firebase console -> Project settings).
+- `.firebaserc` is preconfigured with `weather735-2d34e`
+- Update it if you use a different Firebase project
 
 4) Build the app:
 ```bash
@@ -156,6 +156,7 @@ MIT
 
 ## Links
 
+- Live: https://weather735-2d34e.web.app
 - Repository: https://github.com/Amrut735/Weather
 
 

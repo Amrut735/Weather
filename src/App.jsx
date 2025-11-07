@@ -3,12 +3,13 @@ import axios from "axios";
 import { z } from "zod";
 import SearchBar from "./components/SearchBar.jsx";
 import WeatherCard from "./components/WeatherCard.jsx";
-import BackgroundBeams from "./components/ui/BackgroundBeams.jsx";
 import BackgroundLines from "./components/ui/BackgroundLines.jsx";
 import LayoutTextFlip from "./components/ui/LayoutTextFlip.jsx";
 import AuroraGradient from "./components/ui/AuroraGradient.jsx";
 import Stars from "./components/ui/Stars.jsx";
 import Vignette from "./components/ui/Vignette.jsx";
+import NoiseTexture from "./components/ui/NoiseTexture.jsx";
+import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 
 export default function App() {
   const [city, setCity] = useState("");
@@ -68,37 +69,41 @@ export default function App() {
   };
 
   return (
-    <section className="relative min-h-screen overflow-hidden bg-slate-50 flex justify-center items-start p-6">
+    <section className="relative min-h-screen overflow-hidden bg-slate-50 flex justify-center items-center p-6">
       <Stars />
       <AuroraGradient />
       <BackgroundLines />
-      <BackgroundBeams />
       <Vignette />
-      <div className="relative z-10 bg-white/80 backdrop-blur-md shadow-lg border border-white/40 rounded-2xl w-full max-w-md p-6">
-        <h1 className="text-3xl font-semibold text-center mb-4 tracking-tight">
-          <LayoutTextFlip>WeatherNow 🌦️</LayoutTextFlip>
-        </h1>
+      <NoiseTexture />
+      <div className="relative z-10 w-full max-w-xl px-4">
+        <BackgroundBeamsWithCollision className="mx-auto w-full rounded-[32px] border border-white/40 bg-white/10 p-[1px] shadow-[0_25px_80px_rgba(15,23,42,0.15)] backdrop-blur-3xl">
+          <div className="relative z-10 w-full rounded-[28px] bg-white/90 p-8 sm:p-10">
+            <h1 className="text-3xl font-semibold text-center mb-4 tracking-tight">
+              <LayoutTextFlip>WeatherNow 🌦️</LayoutTextFlip>
+            </h1>
 
-        <SearchBar
-          value={city}
-          onChange={(v) => setCity(v)}
-          onSearch={() => handleSearch(city)}
-          onSearchEnter={(v) => handleSearch(v)}
-          loading={loading}
-        />
+            <SearchBar
+              value={city}
+              onChange={(v) => setCity(v)}
+              onSearch={() => handleSearch(city)}
+              onSearchEnter={(v) => handleSearch(v)}
+              loading={loading}
+            />
 
-        {loading && <p className="text-slate-600 text-center mt-3 animate-pulse">Loading...</p>}
-        {error && <p className="text-red-500 text-center mt-3">{error}</p>}
-        {weather && <WeatherCard data={weather} />}
-        {!loading && !weather && !error && (
-          <p className="text-gray-500 text-center mt-3">
-            Enter a city name to see weather.
-          </p>
-        )}
+            {loading && <p className="text-slate-600 text-center mt-3 animate-pulse">Loading...</p>}
+            {error && <p className="text-red-500 text-center mt-3">{error}</p>}
+            {weather && <WeatherCard data={weather} />}
+            {!loading && !weather && !error && (
+              <p className="text-gray-500 text-center mt-3">
+                Enter a city name to see weather.
+              </p>
+            )}
 
-        <p className="text-xs text-gray-500 text-center mt-6">
-          Powered by OpenWeather API
-        </p>
+            <p className="text-xs text-gray-500 text-center mt-6">
+              Powered by OpenWeather API
+            </p>
+          </div>
+        </BackgroundBeamsWithCollision>
       </div>
     </section>
   );

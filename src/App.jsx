@@ -6,6 +6,9 @@ import WeatherCard from "./components/WeatherCard.jsx";
 import BackgroundBeams from "./components/ui/BackgroundBeams.jsx";
 import BackgroundLines from "./components/ui/BackgroundLines.jsx";
 import LayoutTextFlip from "./components/ui/LayoutTextFlip.jsx";
+import AuroraGradient from "./components/ui/AuroraGradient.jsx";
+import Stars from "./components/ui/Stars.jsx";
+import Vignette from "./components/ui/Vignette.jsx";
 
 export default function App() {
   const [city, setCity] = useState("");
@@ -66,8 +69,11 @@ export default function App() {
 
   return (
     <section className="relative min-h-screen bg-slate-50 flex justify-center items-start p-6">
+      <Stars />
+      <AuroraGradient />
       <BackgroundLines />
       <BackgroundBeams />
+      <Vignette />
       <div className="relative bg-white/80 backdrop-blur-md shadow-lg border border-white/40 rounded-2xl w-full max-w-md p-6">
         <h1 className="text-3xl font-semibold text-center mb-4 tracking-tight">
           <LayoutTextFlip>WeatherNow 🌦️</LayoutTextFlip>

@@ -78,26 +78,23 @@ npm run preview
 
 ### ðŸ“‚ Project Structure
 
-```
+`
 Weather/
-â”œâ”€ public/
-â”‚  â””â”€ screenshots/           # images for README
-â”œâ”€ src/
-â”‚  â”œâ”€ components/            # UI components
-â”‚  â”œâ”€ hooks/                 # custom hooks (optional)
-â”‚  â”œâ”€ styles/                # styles (Tailwind or CSS)
-â”‚  â”œâ”€ utils/                 # helpers (formatting, api)
-â”‚  â”œâ”€ App.jsx
-â”‚  â””â”€ main.jsx
-â”œâ”€ index.html
-â”œâ”€ package.json
-â”œâ”€ vite.config.js
-â””â”€ README.md
-```
-
----
-
-### ðŸŒ API Usage (example with Axios)
+  public/
+    screenshots/           # images for README
+  src/
+    components/            # UI components
+    hooks/                 # custom hooks (optional)
+    styles/                # styles (Tailwind or CSS)
+    utils/                 # helpers (formatting, api)
+    App.jsx
+    main.jsx
+  index.html
+  package.json
+  vite.config.js
+  README.md
+`
+API Usage (example with Axios)
 
 ```js
 import axios from "axios";
@@ -153,3 +150,4 @@ Contributions are welcome! Please open an issue or PR.
 
 ### ðŸ“„ License
 MIT License. See `LICENSE` for details.
+

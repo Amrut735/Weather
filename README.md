@@ -118,6 +118,38 @@ Any static host that serves the Vite build output will work:
 - Netlify: New site from Git, env vars, build `npm run build`, publish `dist/`
 - Render: Static site or web service, build `npm install && npm run build`, serve `dist/`
 
+### Firebase Hosting
+
+This repo includes Firebase config for SPA hosting.
+
+1) Install CLI (one-time):
+```bash
+npm install -g firebase-tools
+```
+
+2) Login (one-time):
+```bash
+firebase login --no-localhost
+```
+
+3) Set your Firebase project ID:
+- Replace `YOUR_FIREBASE_PROJECT_ID` in `.firebaserc` with your actual project ID
+  (find it in Firebase console -> Project settings).
+
+4) Build the app:
+```bash
+npm run build
+```
+
+5) Deploy:
+```bash
+firebase deploy --only hosting
+```
+
+Config files used:
+- `firebase.json` → serves `dist/` and rewrites all routes to `/index.html`
+- `.firebaserc` → sets your default project
+
 ## License
 
 MIT

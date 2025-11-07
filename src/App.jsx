@@ -3,6 +3,9 @@ import axios from "axios";
 import { z } from "zod";
 import SearchBar from "./components/SearchBar.jsx";
 import WeatherCard from "./components/WeatherCard.jsx";
+import BackgroundBeams from "./components/ui/BackgroundBeams.jsx";
+import BackgroundLines from "./components/ui/BackgroundLines.jsx";
+import LayoutTextFlip from "./components/ui/LayoutTextFlip.jsx";
 
 export default function App() {
   const [city, setCity] = useState("");
@@ -62,9 +65,13 @@ export default function App() {
   };
 
   return (
-    <section className="min-h-screen bg-slate-50 flex justify-center items-start p-6">
-      <div className="bg-white shadow-md rounded-xl w-full max-w-md p-6">
-        <h1 className="text-2xl font-semibold text-center mb-4">WeatherNow 🌦️</h1>
+    <section className="relative min-h-screen bg-slate-50 flex justify-center items-start p-6">
+      <BackgroundLines />
+      <BackgroundBeams />
+      <div className="relative bg-white/80 backdrop-blur-md shadow-lg border border-white/40 rounded-2xl w-full max-w-md p-6">
+        <h1 className="text-3xl font-semibold text-center mb-4 tracking-tight">
+          <LayoutTextFlip>WeatherNow 🌦️</LayoutTextFlip>
+        </h1>
 
         <SearchBar
           value={city}
@@ -74,7 +81,7 @@ export default function App() {
           loading={loading}
         />
 
-        {loading && <p className="text-gray-500 text-center mt-3">Loading...</p>}
+        {loading && <p className="text-slate-600 text-center mt-3 animate-pulse">Loading...</p>}
         {error && <p className="text-red-500 text-center mt-3">{error}</p>}
         {weather && <WeatherCard data={weather} />}
         {!loading && !weather && !error && (
@@ -83,7 +90,7 @@ export default function App() {
           </p>
         )}
 
-        <p className="text-xs text-gray-400 text-center mt-6">
+        <p className="text-xs text-gray-500 text-center mt-6">
           Powered by OpenWeather API
         </p>
       </div>
